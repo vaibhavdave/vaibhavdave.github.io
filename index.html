@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vaibhav Dave</title>
+  <style>
+    body {
+      font-family: "Inter", "Segoe UI", sans-serif;
+      background: #f4f8fc;
+      margin: 0;
+      padding: 0;
+      color: #2c3e50;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 40px 50px;
+      border-radius: 12px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+      line-height: 1.6;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 32px;
+      letter-spacing: 1px;
+      color: #1a202c;
+    }
+
+    .contact-info {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      text-align: center;
+      font-size: 16px;
+      color: #34495e;
+    }
+
+    .contact-info a {
+      color: #3498db;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: #2c3e50;
+      text-decoration: underline;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-top: 35px;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #3498db;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #34495e;
+    }
+
+    h3.accordion-header {
+      font-size: 16px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      color: #2c3e50;
+      cursor: pointer;
+      background: #ecf6ff;
+      padding: 10px 15px;
+      border-radius: 6px;
+      user-select: none;
+      position: relative;
+      transition: background 0.25s ease;
+    }
+    h3.accordion-header:hover {
+      background: #d0e8ff;
+    }
+    h3.accordion-header::after {
+      content: '▼';
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      transition: transform 0.3s ease;
+      color: #3498db;
+    }
+    h3.accordion-header.active::after {
+      transform: translateY(-50%) rotate(-180deg);
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    ul {
+      margin: 10px 0 20px 18px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .skill {
+      background: #f0f9ff;
+      border: 1px solid #d1ebff;
+      padding: 10px;
+      text-align: center;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: 0.25s all ease;
+    }
+
+    .skill:hover {
+      background: #3498db;
+      color: #fff;
+      transform: translateY(-2px);
+      cursor: default;
+    }
+
+    .highlight {
+      background: #3498db;
+      color: #fff;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .achievements li {
+      list-style: "🏆 ";
+      margin-left: 5px;
+      padding-left: 5px;
+    }
+
+    .certifications li::before {
+      content: "📜 ";
+    }
+
+    .work-role {
+      margin-bottom: 20px;
+    }
+
+    .role-title {
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 6px;
+    }
+
+    .role-period {
+      color: #7f8c8d;
+      font-size: 14px;
+      margin-left: 5px;
+    }
+
+    .accordion-content {
+      padding-left: 15px;
+      padding-top: 5px;
+      padding-bottom: 15px;
+      display: none;
+    }
+
+    .accordion-content.open {
+      display: block;
+    }
+
+    .personal-details p {
+      margin: 4px 0;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #7f8c8d;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Vaibhav Dave</h1>
+
+    <div class="contact-info">
+      <a href="mailto:vaibhadaveofficial@gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
+      |
+      <a href="https://www.linkedin.com/in/vaibhavdave10990" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+
+    <div class="section">
+      <h2>Objective</h2>
+      <p>Dedicated and result-oriented professional with experience in leading teams and driving strategic initiatives. Pursuing a challenging role to leverage expertise in coding, stakeholder engagement, and project execution to enhance software development processes.</p>
+    </div>
+
+    <div class="section">
+      <h2>Education</h2>
+      <p><strong>2012:</strong> B.E. in Information Technology from K.K.Wagh College of Engineering, Pune, Maharashtra, India</p>
+    </div>
+
+    <div class="section">
+      <h2>Core Competencies</h2>
+      <ul>
+        <li>Software Development Lifecycle</li>
+        <li>Requirement Gathering</li>
+        <li>Incident Resolution</li>
+        <li>Stakeholder Management</li>
+        <li>Scrum/Agile Methodologies</li>
+        <li>Software Development Framework (SDF)</li>
+        <li>Root Cause Analysis</li>
+        <li>Project Execution & Management</li>
+        <li>Coaching / Mentoring</li>
+        <li>Solution Optimization</li>
+        <li>Roadmaps Development</li>
+        <li>Cloud Computing</li>
+        <li>DevOps Practices</li>
+        <li>Quality Assurance</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Soft Skills</h2>
+      <ul>
+        <li>Collaborator</li>
+        <li>Communicator</li>
+        <li>Innovator</li>
+        <li>Critical Thinker</li>
+        <li>Numerical Competence</li>
+        <li>Problem Solver</li>
+        <li>Time Management</li>
+        <li>Team-oriented</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Profile Summary</h2>
+      <ul>
+        <li>13 years of extensive experience in Backend Development with technical leadership.</li>
+        <li>Currently Software Technical Expert at Amdocs, India delivering features such as <span class="highlight">tmf641 scheduling</span> and <span class="highlight">Istio Mesh adoption</span>.</li>
+        <li>Led Cloudcore inception at Operative, handling real-time data ingestion and retrieval.</li>
+        <li>Proficient in Java, Spring Boot, MongoDB, and backend systems.</li>
+        <li>Created Spark-based validation framework ensuring high geospatial data accuracy.</li>
+        <li>Expertise in DevOps pipelines, data synchronization, and AI-powered optimizations.</li>
+        <li>Accomplished in Salesforce integrations and building scalable integration platforms.</li>
+        <li>Mentor and strategic coach enhancing team efficiency and growth.</li>
+        <li>Saved $1.2M annually via an in-house solution at Morgan Stanley.</li>
+        <li>Strong knowledge of architecture, design patterns, and full SDLC methodologies.</li>
+        <li>Strategic thinker aligning technology with sustainable business outcomes.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill">Java</div>
+        <div class="skill">MongoDB</div>
+        <div class="skill">Kubernetes</div>
+        <div class="skill">Spring Boot</div>
+        <div class="skill">Python</div>
+        <div class="skill">Jenkins</div>
+        <div class="skill">Microservices</div>
+        <div class="skill">PostgreSQL</div>
+        <div class="skill">RabbitMQ</div>
+        <div class="skill">Apache Spark</div>
+        <div class="skill">Scala</div>
+        <div class="skill">Kafka</div>
+        <div class="skill">Redis</div>
+        <div class="skill">AWS</div>
+        <div class="skill">OpenSearch</div>
+        <div class="skill">Elastic Stack</div>
+        <div class="skill">Terraform</div>
+        <div class="skill">Cucumber</div>
+        <div class="skill">Splunk</div>
+      </div>
+    </div>
+
+    <div class="section certifications">
+      <h2>Certifications</h2>
+      <ul>
+        <li>AWS Certified Cloud Practitioner (June 2021)</li>
+        <li>Worldwide Software Architecture Summit 22 vol.2 (October 2022)</li>
+      </ul>
+    </div>
+
+    <div class="section achievements">
+      <h2>Achievements & Awards</h2>
+      <ul>
+        <li>1st Prize, Operative Hackathon (April 2022): Led Opsman innovation improving deployments.</li>
+        <li>Opstar Award, Operative (September 2023): Ranked in top 10 global impact creators.</li>
+        <li>Best Performance Award, Here Technologies (August 2021): Outstanding quarterly delivery.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Work Experience</h2>
+
+      <h3 class="accordion-header">Software Technical Expert <span class="role-period">(Jan 2025 – Present)</span></h3>
+      <div class="accordion-content">
+        <p class="role-title">Amdocs, Telecom, Pune, Maharashtra</p>
+        <ul>
+          <li>Implemented Timers Feature to schedule TMF-641 service orders.</li>
+          <li>Adopted Istio as service mesh for Network Orchestration microservices.</li>
+          <li>Involved in Proof of Concepts for Gen AI Projects.</li>
+        </ul>
+      </div>
+
+      <h3 class="accordion-header">Principal Software Engineer <span class="role-period">(Jan 2022 – Jan 2025)</span></h3>
+      <div class="accordion-content">
+        <p class="role-title">Operative Pvt. Ltd., Ad-Tech Products, Pune, Maharashtra</p>
+        <ul>
+          <li>Led Cloud Core, innovating real-time data ingestion and retrieval systems.</li>
+          <li>Championed deployment automation via Opsman CLI tool.</li>
+          <li>Integrated Salesforce with IBMS enabling real-time Sales Opportunities sync.</li>
+          <li>Worked on Integration Platform synchronizing data across business systems.</li>
+          <li>Developed Generative AI applications enhancing efficiency.</li>
+          <li>Provided technical leadership ensuring coding standards and best practices.</li>
+          <li>Architected, designed, and reviewed enterprise-level systems for scale and reliability.</li>
+          <li>Conducted code reviews and enforced quality assurance processes.</li>
+          <li>Collaborated with stakeholders driving project scope and execution.</li>
+          <li>Mentored and coached junior engineers fostering learning and growth.</li>
+        </ul>
+      </div>
+
+      <h3 class="accordion-header">Lead Software Engineer <span class="role-period">(Mar 2021 – Jan 2022)</span></h3>
+      <div class="accordion-content">
+        <p class="role-title">Here Technologies, Location Services, Mumbai, Maharashtra</p>
+        <ul>
+          <li>Architected Spark-based validation framework assessing ~10 TB of geospatial data.</li>
+          <li>Automated pipelines merging diverse map layers for unified maps.</li>
+        </ul>
+      </div>
+
+    <div class="section">
+      <h2>Previous Experience</h2>
+      <ul>
+        <li>Manager, Morgan Stanley (Nov 2018 – Feb 2021),Investment Banking, Mumbai </li>
+        <li>Associate, TIAA GBS (Jan 2017 – Nov 2018), Retirement Services, Mumbai.</li>
+        <li>Senior Software Engineer, eQ Technologic Pvt. Ltd. (Aug 2012 – Dec 2016), Data Migration & Integration, Pune.</li>
+      </ul>
+    </div>
+
+    <footer>
+      © 2025 | Vaibhav Dave
+    </footer>
+  </div>
+
+  <script>
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const active = header.classList.contains('active');
+        // Close all
+        document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+        document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
+        // Toggle current
+        if (!active) {
+          header.classList.add('active');
+          header.nextElementSibling.classList.add('open');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
