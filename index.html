@@ -1,385 +1,705 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Vaibhav Dave</title>
-  <style>
-    body {
-      font-family: "Inter", "Segoe UI", sans-serif;
-      background: #f4f8fc;
-      margin: 0;
-      padding: 0;
-      color: #2c3e50;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaibhav Dave — Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    .container {
-      max-width: 950px;
-      margin: 40px auto;
-      background: #ffffff;
-      padding: 40px 50px;
-      border-radius: 12px;
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
-      line-height: 1.6;
-    }
+  :root {
+    --ink: #1a1612;
+    --ink-soft: #4a4340;
+    --ink-muted: #8a817c;
+    --cream: #faf8f4;
+    --warm: #f2ede4;
+    --gold: #b8965a;
+    --gold-light: #d4b07a;
+    --rule: #ddd5c8;
+    --accent: #2c3e35;
+  }
 
-    h1 {
-      text-align: center;
-      margin-bottom: 10px;
-      font-size: 32px;
-      letter-spacing: 1px;
-      color: #1a202c;
-    }
+  @page { margin: 0; size: A4; }
 
-    .contact-info {
-      max-width: 600px;
-      margin: 0 auto 30px;
-      text-align: center;
-      font-size: 16px;
-      color: #34495e;
-    }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 9.5pt;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
 
-    .contact-info a {
-      color: #3498db;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
 
-    .contact-info a:hover {
-      color: #2c3e50;
-      text-decoration: underline;
-    }
+  /* Decorative background */
+  .page::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 72mm;
+    height: 100%;
+    background: var(--accent);
+    z-index: 0;
+  }
 
-    h2 {
-      font-size: 20px;
-      margin-top: 35px;
-      margin-bottom: 10px;
-      padding-bottom: 5px;
-      border-bottom: 2px solid #3498db;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: #34495e;
-    }
+  .page::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 72mm;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+    z-index: 1;
+  }
 
-    h3.accordion-header {
-      font-size: 16px;
-      margin-top: 10px;
-      margin-bottom: 5px;
-      color: #2c3e50;
-      cursor: pointer;
-      background: #ecf6ff;
-      padding: 10px 15px;
-      border-radius: 6px;
-      user-select: none;
-      position: relative;
-      transition: background 0.25s ease;
-    }
-    h3.accordion-header:hover {
-      background: #d0e8ff;
-    }
-    h3.accordion-header::after {
-      content: '▼';
-      position: absolute;
-      right: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 14px;
-      transition: transform 0.3s ease;
-      color: #3498db;
-    }
-    h3.accordion-header.active::after {
-      transform: translateY(-50%) rotate(-180deg);
-    }
+  /* ── LAYOUT ── */
+  .layout {
+    display: flex;
+    position: relative;
+    z-index: 2;
+  }
 
-    p {
-      margin-bottom: 10px;
-    }
+  .sidebar {
+    width: 72mm;
+    padding: 14mm 7mm 14mm 9mm;
+    color: #e8e2d8;
+    flex-shrink: 0;
+  }
 
-    ul {
-      margin: 10px 0 20px 18px;
-    }
+  .main {
+    flex: 1;
+    padding: 14mm 10mm 14mm 12mm;
+  }
 
-    li {
-      margin-bottom: 6px;
-    }
+  /* ── HEADER (sidebar) ── */
+  .name-block {
+    margin-bottom: 10mm;
+  }
 
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 12px;
-      margin-top: 15px;
-    }
+  .name-block .first {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28pt;
+    font-weight: 300;
+    line-height: 1;
+    color: #fff;
+    letter-spacing: 0.02em;
+    display: block;
+  }
 
-    .skill {
-      background: #f0f9ff;
-      border: 1px solid #d1ebff;
-      padding: 10px;
-      text-align: center;
-      border-radius: 6px;
-      font-size: 14px;
-      transition: 0.25s all ease;
-    }
+  .name-block .last {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28pt;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--gold-light);
+    letter-spacing: 0.02em;
+    display: block;
+  }
 
-    .skill:hover {
-      background: #3498db;
-      color: #fff;
-      transform: translateY(-2px);
-      cursor: default;
-    }
+  .name-block .title-line {
+    margin-top: 3mm;
+    font-size: 7.5pt;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9aad9e;
+  }
 
-    .highlight {
-      background: #3498db;
-      color: #fff;
-      padding: 2px 6px;
-      border-radius: 3px;
-      font-size: 13px;
-      font-weight: 500;
-    }
+  /* Sidebar gold rule */
+  .sidebar-rule {
+    width: 30px;
+    height: 2px;
+    background: var(--gold);
+    margin: 6mm 0;
+  }
 
-    .section {
-      margin-bottom: 30px;
-    }
+  /* Sidebar sections */
+  .s-section {
+    margin-bottom: 8mm;
+  }
 
-    .achievements li {
-      list-style: "🏆 ";
-      margin-left: 5px;
-      padding-left: 5px;
-    }
+  .s-label {
+    font-size: 6.5pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    font-weight: 500;
+    margin-bottom: 3mm;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
 
-    .certifications li::before {
-      content: "📜 ";
-    }
+  .s-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.12);
+  }
 
-    .work-role {
-      margin-bottom: 20px;
-    }
+  .contact-item {
+    font-size: 8pt;
+    color: #c8c0b4;
+    margin-bottom: 2mm;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
 
-    .role-title {
-      font-weight: bold;
-      color: #2c3e50;
-      margin-bottom: 6px;
-    }
+  .contact-item a {
+    color: #c8c0b4;
+    text-decoration: none;
+  }
 
-    .role-period {
-      color: #7f8c8d;
-      font-size: 14px;
-      margin-left: 5px;
-    }
+  .contact-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
 
-    .accordion-content {
-      padding-left: 15px;
-      padding-top: 5px;
-      padding-bottom: 15px;
-      display: none;
-    }
+  .skill-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 7pt;
+    color: #b0a898;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 1.5px 6px;
+    border-radius: 2px;
+    margin: 1.5px 1.5px;
+  }
 
-    .accordion-content.open {
-      display: block;
-    }
+  .core-item {
+    font-size: 8pt;
+    color: #c0b8ae;
+    padding: 2px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
 
-    .personal-details p {
-      margin: 4px 0;
-    }
+  .core-item::before {
+    content: '▸';
+    color: var(--gold);
+    font-size: 7pt;
+    flex-shrink: 0;
+  }
 
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 14px;
-      color: #7f8c8d;
-    }
-  </style>
+  .cert-item {
+    font-size: 7.5pt;
+    color: #b8b0a4;
+    line-height: 1.4;
+    margin-bottom: 2.5mm;
+  }
+
+  .cert-item strong {
+    display: block;
+    color: #d4ccc4;
+    font-weight: 500;
+  }
+
+  .award-item {
+    font-size: 7.5pt;
+    color: #b8b0a4;
+    line-height: 1.4;
+    margin-bottom: 3mm;
+    border-left: 2px solid var(--gold);
+    padding-left: 6px;
+  }
+
+  .award-item strong {
+    display: block;
+    color: #d4ccc4;
+    font-weight: 500;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .section {
+    margin-bottom: 8mm;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4mm;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15pt;
+    font-weight: 400;
+    color: var(--accent);
+    letter-spacing: 0.03em;
+    font-style: italic;
+  }
+
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--gold), transparent);
+  }
+
+  /* Objective */
+  .objective-text {
+    font-size: 9pt;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    font-style: italic;
+    padding-left: 4mm;
+    border-left: 3px solid var(--rule);
+  }
+
+  /* Work experience */
+  .job {
+    margin-bottom: 6mm;
+    padding-bottom: 5mm;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+
+  .job:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1mm;
+    gap: 4mm;
+  }
+
+  .job-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12pt;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .job-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 7pt;
+    color: var(--gold);
+    white-space: nowrap;
+    padding-top: 2px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+
+  .job-company {
+    font-size: 8.5pt;
+    color: var(--ink-muted);
+    margin-bottom: 2.5mm;
+    font-weight: 500;
+  }
+
+  .job-company span {
+    color: var(--ink-soft);
+  }
+
+  .job-bullets {
+    list-style: none;
+    padding: 0;
+  }
+
+  .job-bullets li {
+    font-size: 8.5pt;
+    color: var(--ink-soft);
+    padding: 1.5px 0 1.5px 12px;
+    position: relative;
+    line-height: 1.55;
+  }
+
+  .job-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 7pt;
+    top: 3px;
+  }
+
+  /* Previous experience */
+  .prev-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2mm;
+  }
+
+  .prev-item {
+    display: flex;
+    gap: 6mm;
+    align-items: baseline;
+    font-size: 8.5pt;
+    color: var(--ink-soft);
+    padding: 2mm 0;
+    border-bottom: 1px dashed var(--rule);
+  }
+
+  .prev-item:last-child {
+    border-bottom: none;
+  }
+
+  .prev-role {
+    font-weight: 500;
+    color: var(--ink);
+    min-width: 110px;
+  }
+
+  .prev-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 7pt;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+
+  /* Education */
+  .edu-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4mm;
+  }
+
+  .edu-degree {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11pt;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .edu-school {
+    font-size: 8.5pt;
+    color: var(--ink-muted);
+    margin-top: 1mm;
+  }
+
+  .edu-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 8pt;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+
+  /* Soft skills pills */
+  .soft-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2mm;
+  }
+
+  .soft-pill {
+    font-size: 7.5pt;
+    color: var(--accent);
+    background: var(--warm);
+    border: 1px solid var(--rule);
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+
+  /* Profile summary */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5mm 6mm;
+  }
+
+  .summary-item {
+    font-size: 8.5pt;
+    color: var(--ink-soft);
+    padding: 2px 0 2px 10px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .summary-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 5px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  /* Footer */
+  .footer {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 4mm 0 6mm;
+    font-size: 7pt;
+    color: var(--ink-muted);
+    letter-spacing: 0.1em;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* Print */
+  @media print {
+    html, body { background: var(--cream) !important; }
+    .page { width: 210mm; min-height: 297mm; margin: 0; box-shadow: none; }
+    a { color: inherit; }
+  }
+
+  /* Screen only */
+  @media screen {
+    body { padding: 20px; background: #d8d3cc; }
+    .page { box-shadow: 0 20px 80px rgba(0,0,0,0.25); border-radius: 2px; }
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1>Vaibhav Dave</h1>
+<div class="page">
 
-    <div class="contact-info">
-      <a href="mailto:vaibhadaveofficial@gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
-      |
-      <a href="https://www.linkedin.com/in/vaibhavdave10990" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </div>
+  <div class="layout">
 
-    <div class="section">
-      <h2>Objective</h2>
-      <p>Dedicated and result-oriented professional with experience in leading teams and driving strategic initiatives. Pursuing a challenging role to leverage expertise in coding, stakeholder engagement and project execution to enhance software development processes.</p>
-    </div>
+    <!-- ══════════════ SIDEBAR ══════════════ -->
+    <aside class="sidebar">
 
-    <div class="section">
-      <h2>Education</h2>
-      <p><strong>2012:</strong> B.E. in Information Technology from K.K.Wagh College of Engineering, Nashik, Maharashtra, India</p>
-    </div>
-
-    <div class="section">
-      <h2>Core Competencies</h2>
-      <ul>
-        <li>Software Development Lifecycle</li>
-        <li>Requirement Gathering</li>
-        <li>Incident Resolution</li>
-        <li>Stakeholder Management</li>
-        <li>Scrum/Agile Methodologies</li>
-        <li>Root Cause Analysis</li>
-        <li>Project Execution & Management</li>
-        <li>Coaching / Mentoring</li>
-        <li>Solution Optimization</li>
-        <li>Roadmaps Development</li>
-        <li>Cloud Computing</li>
-        <li>DevOps Practices</li>
-        <li>Quality Assurance</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>Soft Skills</h2>
-      <ul>
-        <li>Collaborator</li>
-        <li>Communicator</li>
-        <li>Innovator</li>
-        <li>Critical Thinker</li>
-        <li>Numerical Competence</li>
-        <li>Problem Solver</li>
-        <li>Time Management</li>
-        <li>Team-oriented</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>Profile Summary</h2>
-      <ul>
-        <li>13 years of extensive experience in Backend Development with technical leadership.</li>
-        <li>Currently working as Vice President at CitiCorp, Pune, India </li>
-        <li>Led Cloudcore inception at Operative, handling real-time data ingestion and retrieval.</li>
-        <li>Proficient in Java, Spring Boot, MongoDB, and backend systems.</li>
-        <li>Created Spark-based validation framework ensuring high geospatial data accuracy.</li>
-        <li>Expertise in DevOps pipelines, data synchronization, and AI-powered optimizations.</li>
-        <li>Accomplished in Salesforce integrations and building scalable integration platforms.</li>
-        <li>Mentor and strategic coach enhancing team efficiency and growth.</li>
-        <li>Saved $1.2M annually via an in-house solution at Morgan Stanley.</li>
-        <li>Strong knowledge of architecture, design patterns, and full SDLC methodologies.</li>
-        <li>Strategic thinker aligning technology with sustainable business outcomes.</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>Technical Skills</h2>
-      <div class="skills-grid">
-        <div class="skill">Java</div>
-        <div class="skill">MongoDB</div>
-        <div class="skill">Kubernetes</div>
-        <div class="skill">Spring Boot</div>
-        <div class="skill">Python</div>
-        <div class="skill">Jenkins</div>
-        <div class="skill">Microservices</div>
-        <div class="skill">PostgreSQL</div>
-        <div class="skill">RabbitMQ</div>
-        <div class="skill">Apache Spark</div>
-        <div class="skill">Scala</div>
-        <div class="skill">Kafka</div>
-        <div class="skill">Redis</div>
-        <div class="skill">AWS</div>
-        <div class="skill">OpenSearch</div>
-        <div class="skill">Elastic Stack</div>
-        <div class="skill">Terraform</div>
-        <div class="skill">Cucumber</div>
-        <div class="skill">Splunk</div>
-        <div class="skill">Shell Scripting</div>
-      </div>
-    </div>
-
-    <div class="section certifications">
-      <h2>Certifications</h2>
-      <ul>
-        <li>AWS Certified Cloud Practitioner (June 2021)</li>
-        <li>Worldwide Software Architecture Summit 22 vol.2 (October 2022)</li>
-      </ul>
-    </div>
-
-    <div class="section achievements">
-      <h2>Achievements & Awards</h2>
-      <ul>
-        <li>1st Prize, Operative Hackathon (April 2022): Led Opsman innovation improving deployments.</li>
-        <li>Opstar Award, Operative (September 2023): Ranked in top 10 global impact creators.</li>
-        <li>Best Performance Award, Here Technologies (August 2021): Outstanding quarterly delivery.</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>Work Experience</h2>
-       <h3 class="accordion-header">Vice President <span class="role-period">(Sep 2025 – Present)</span></h3>
-      <div class="accordion-content">
-        <p class="role-title">Citicorp, Payments, Pune, Maharashtra</p>
-        <ul>
-          <li>Leading Two scrum teams under shared services for Client Enablement in Validation and Enrichment Services</li>
-          <li>Responsible to plan and deliver agreed commitments.</li>
-          <li>Engagement with different stakeholders including Product, Architects, Business Analysts to help firm increase revenue, mitigate risks and
-maintain quality of deliverables as per regulatory requirements.</li>
-        </ul>
-      </div>
-      
-      <h3 class="accordion-header">Software Technical Expert <span class="role-period">(Jan 2025 – Aug 2025)</span></h3>
-      <div class="accordion-content">
-        <p class="role-title">Amdocs, Telecom, Pune, Maharashtra</p>
-        <ul>
-          <li>Implemented Timers Feature to schedule TMF-641 service orders.</li>
-          <li>Adopted Istio as service mesh for Network Orchestration microservices.</li>
-          <li>Involved in Proof of Concepts for Gen AI Projects.</li>
-        </ul>
+      <div class="name-block">
+        <span class="first">Vaibhav</span>
+        <span class="last">Dave</span>
+        <div class="sidebar-rule"></div>
+        <span class="title-line">Vice President · Citicorp</span>
       </div>
 
-      <h3 class="accordion-header">Principal Software Engineer <span class="role-period">(Jan 2022 – Jan 2025)</span></h3>
-      <div class="accordion-content">
-        <p class="role-title">Operative Pvt. Ltd., Ad-Tech Products, Pune, Maharashtra</p>
-        <ul>
-          <li>Led Cloud Core, innovating real-time data ingestion and retrieval systems.</li>
-          <li>Championed deployment automation via Opsman CLI tool.</li>
-          <li>Integrated Salesforce with IBMS enabling real-time Sales Opportunities sync.</li>
-          <li>Worked on Integration Platform synchronizing data across business systems.</li>
-          <li>Developed Generative AI applications enhancing efficiency.</li>
-          <li>Provided technical leadership ensuring coding standards and best practices.</li>
-          <li>Architected, designed, and reviewed enterprise-level systems for scale and reliability.</li>
-          <li>Conducted code reviews and enforced quality assurance processes.</li>
-          <li>Collaborated with stakeholders driving project scope and execution.</li>
-          <li>Mentored and coached junior engineers fostering learning and growth.</li>
-        </ul>
+      <div class="s-section">
+        <div class="s-label">Contact</div>
+        <div class="contact-item"><span class="contact-dot"></span><a href="mailto:vaibhavdave10990@gmail.com">vaibhavdave10990@gmail.com</a></div>
+        <div class="contact-item"><span class="contact-dot"></span><a href="https://www.linkedin.com/in/vaibhavdave10990">linkedin.com/in/vaibhavdave10990</a></div>
+        <div class="contact-item"><span class="contact-dot"></span>Nashik / Pune, Maharashtra, India</div>
       </div>
 
-      <h3 class="accordion-header">Lead Software Engineer <span class="role-period">(Mar 2021 – Jan 2022)</span></h3>
-      <div class="accordion-content">
-        <p class="role-title">Here Technologies, Location Services, Mumbai, Maharashtra</p>
-        <ul>
-          <li>Architected Spark-based validation framework assessing ~10 TB of geospatial data.</li>
-          <li>Automated pipelines merging diverse map layers for unified maps.</li>
-        </ul>
+      <div class="s-section">
+        <div class="s-label">Tech Stack</div>
+        <div>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">Spring Boot</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Scala</span>
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">Apache Spark</span>
+          <span class="skill-tag">Kafka</span>
+          <span class="skill-tag">Redis</span>
+          <span class="skill-tag">RabbitMQ</span>
+          <span class="skill-tag">Kubernetes</span>
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">Terraform</span>
+          <span class="skill-tag">Jenkins</span>
+          <span class="skill-tag">OpenSearch</span>
+          <span class="skill-tag">Elastic Stack</span>
+          <span class="skill-tag">Splunk</span>
+          <span class="skill-tag">Cucumber</span>
+          <span class="skill-tag">Shell Scripting</span>
+          <span class="skill-tag">Microservices</span>
+        </div>
       </div>
 
-    <div class="section">
-      <h2>Previous Experience</h2>
-      <ul>
-        <li>Manager, Morgan Stanley (Nov 2018 – Feb 2021),Investment Banking, Mumbai </li>
-        <li>Associate, TIAA GBS (Jan 2017 – Nov 2018), Retirement Services, Mumbai.</li>
-        <li>Senior Software Engineer, eQ Technologic Pvt. Ltd. (Aug 2012 – Dec 2016), Data Migration & Integration, Pune.</li>
-      </ul>
-    </div>
+      <div class="s-section">
+        <div class="s-label">Competencies</div>
+        <div class="core-item">Software Development Lifecycle</div>
+        <div class="core-item">Requirement Gathering</div>
+        <div class="core-item">Stakeholder Management</div>
+        <div class="core-item">Scrum / Agile Methodologies</div>
+        <div class="core-item">Incident Resolution & RCA</div>
+        <div class="core-item">Project Execution & Mgmt</div>
+        <div class="core-item">Coaching / Mentoring</div>
+        <div class="core-item">Cloud Computing & DevOps</div>
+        <div class="core-item">Solution Optimization</div>
+        <div class="core-item">Roadmaps Development</div>
+      </div>
 
-    <footer>
-      © 2025 | Vaibhav Dave
-    </footer>
-  </div>
+      <div class="s-section">
+        <div class="s-label">Certifications</div>
+        <div class="cert-item">
+          <strong>AWS Certified Cloud Practitioner</strong>
+          June 2021
+        </div>
+        <div class="cert-item">
+          <strong>Worldwide Software Architecture Summit 22 vol.2</strong>
+          October 2022
+        </div>
+      </div>
 
-  <script>
-    document.querySelectorAll('.accordion-header').forEach(header => {
-      header.addEventListener('click', () => {
-        const active = header.classList.contains('active');
-        // Close all
-        document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
-        document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
-        // Toggle current
-        if (!active) {
-          header.classList.add('active');
-          header.nextElementSibling.classList.add('open');
-        }
-      });
-    });
-  </script>
-</body>
-</html>
+      <div class="s-section">
+        <div class="s-label">Awards</div>
+        <div class="award-item">
+          <strong>1st Prize — Operative Hackathon</strong>
+          Led Opsman innovation improving deployments · Apr 2022
+        </div>
+        <div class="award-item">
+          <strong>Opstar Award — Operative</strong>
+          Ranked top 10 global impact creators · Sep 2023
+        </div>
+        <div class="award-item">
+          <strong>Best Performance Award — Here Technologies</strong>
+          Outstanding quarterly delivery · Aug 2021
+        </div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-label">Education</div>
+        <div class="cert-item">
+          <strong>B.E. in Information Technology</strong>
+          K.K.Wagh College of Engineering<br>Nashik, Maharashtra · 2012
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ══════════════ MAIN ══════════════ -->
+    <main class="main">
+
+      <!-- Objective -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-title">Objective</div>
+          <div class="section-rule"></div>
+        </div>
+        <p class="objective-text">Dedicated and result-oriented professional with experience in leading teams and driving strategic initiatives. Pursuing a challenging role to leverage expertise in coding, stakeholder engagement and project execution to enhance software development processes.</p>
+      </div>
+
+      <!-- Profile Summary -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-title">Profile Summary</div>
+          <div class="section-rule"></div>
+        </div>
+        <div class="summary-grid">
+          <div class="summary-item">13 years of extensive experience in Backend Development with technical leadership</div>
+          <div class="summary-item">Currently Vice President at CitiCorp, Pune</div>
+          <div class="summary-item">Led Cloudcore inception at Operative — real-time data ingestion & retrieval</div>
+          <div class="summary-item">Proficient in Java, Spring Boot, MongoDB, and backend systems</div>
+          <div class="summary-item">Created Spark-based validation framework for high geospatial data accuracy</div>
+          <div class="summary-item">Expertise in DevOps pipelines, data sync & AI-powered optimizations</div>
+          <div class="summary-item">Accomplished in Salesforce integrations & scalable integration platforms</div>
+          <div class="summary-item">Saved $1.2M annually via an in-house solution at Morgan Stanley</div>
+          <div class="summary-item">Mentor and strategic coach enhancing team efficiency and growth</div>
+          <div class="summary-item">Strategic thinker aligning technology with business outcomes</div>
+        </div>
+      </div>
+
+      <!-- Work Experience -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-title">Work Experience</div>
+          <div class="section-rule"></div>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Vice President</div>
+            <div class="job-date">Sep 2025 – Present</div>
+          </div>
+          <div class="job-company"><span>Citicorp</span> · Payments · Pune, Maharashtra</div>
+          <ul class="job-bullets">
+            <li>Leading scrum teams under shared services for Client Enablement in Validation and Enrichment Services</li>
+            <li>Responsible for planning and delivering agreed commitments</li>
+            <li>Engagement with stakeholders including Product, Architects, and Business Analysts to increase revenue, mitigate risks, and maintain quality as per regulatory requirements</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Software Technical Expert</div>
+            <div class="job-date">Jan 2025 – Aug 2025</div>
+          </div>
+          <div class="job-company"><span>Amdocs</span> · Telecom · Pune, Maharashtra</div>
+          <ul class="job-bullets">
+            <li>Implemented Timers Feature to schedule TMF-641 service orders</li>
+            <li>Adopted Istio as service mesh for Network Orchestration microservices</li>
+            <li>Involved in Proof of Concepts for Gen AI Projects</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Principal Software Engineer</div>
+            <div class="job-date">Jan 2022 – Jan 2025</div>
+          </div>
+          <div class="job-company"><span>Operative Pvt. Ltd.</span> · Ad-Tech Products · Pune, Maharashtra</div>
+          <ul class="job-bullets">
+            <li>Led Cloud Core, innovating real-time data ingestion and retrieval systems</li>
+            <li>Championed deployment automation via Opsman CLI tool</li>
+            <li>Integrated Salesforce with IBMS enabling real-time Sales Opportunities sync</li>
+            <li>Worked on Integration Platform synchronizing data across business systems</li>
+            <li>Developed Generative AI applications enhancing efficiency</li>
+            <li>Provided technical leadership ensuring coding standards and best practices</li>
+            <li>Architected, designed, and reviewed enterprise-level systems for scale and reliability</li>
+            <li>Mentored and coached junior engineers fostering learning and growth</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Lead Software Engineer</div>
+            <div class="job-date">Mar 2021 – Jan 2022</div>
+          </div>
+          <div class="job-company"><span>Here Technologies</span> · Location Services · Mumbai, Maharashtra</div>
+          <ul class="job-bullets">
+            <li>Architected Spark-based validation framework assessing ~10 TB of geospatial data</li>
+            <li>Automated pipelines merging diverse map layers for unified maps</li>
+          </ul>
+        </div>
+
+        <!-- Previous -->
+        <div class="section-header" style="margin-top:4mm; margin-bottom:3mm;">
+          <div class="section-title" style="font-size:11pt;">Previous Experience</div>
+          <div class="section-rule"></div>
+        </div>
+
+        <div class="prev-grid">
+          <div class="prev-item">
+            <span class="prev-role">Manager</span>
+            <span>Morgan Stanley · Investment Banking · Mumbai</span>
+            <span class="prev-date">Nov 2018 – Feb 2021</span>
+          </div>
+          <div class="prev-item">
+            <span class="prev-role">Associate</span>
+            <span>TIAA GBS · Retirement Services · Mumbai</span>
+            <span class="prev-date">Jan 2017 – Nov 2018</span>
+          </div>
+          <div class="prev-item">
+            <span class="prev-role">Sr. Software Engineer</span>
+            <span>eQ Technologic Pvt. Ltd. · Data Migration & Integration · Pune</span>
+            <span class="prev-date">Aug 2012 – Dec 2016</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Soft Skills -->
+      <div class="section" style="margin-bottom:0;">
+        <div class="section-header">
+          <div class="section-title">Soft Skills</div>
+          <div class="section-rule"></div>
+        </div>
+        <div class="soft-skills">
+          <span class="soft-pill">Collaborator</span>
+          <span class="soft-pill">Communicator</span>
+          <span class="soft-pill">Innovator</span>
+          <span class="soft-pill">Critical Thinker</span>
+          <span class="soft-pill">Numerical Competence</span>
+          <span class="soft-pill">Problem Solver</span>
+          <span class="soft-pill">Time Management</span>
+          <span class="soft-pill">Team-oriented</span>
+        </div>
+      </div>
